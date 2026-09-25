@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>راه‌اندازی اولیه · PXPanel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/setup/style.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="shell">
+      <aside class="side">
+        <div class="side-brand">
+          <div class="logo">PX</div>
+          <div>
+            <div class="side-name">پی ایکس</div>
+            <div class="side-ver">نسخه ۱۴</div>
+          </div>
+        </div>
+        <h2 class="side-title">راه‌اندازی اولیه</h2>
+        <p class="side-desc">قبل از ورود به داشبورد، یک رمز عبور قوی برای حساب مالک پنل تعیین کنید.</p>
+        <ul class="side-steps">
+          <li class="on"><span>۱</span> تعیین رمز مالک</li>
+          <li><span>۲</span> ورود به داشبورد</li>
+          <li><span>۳</span> ساخت کانفیگ</li>
+        </ul>
+        <p class="side-foot">ساخته شده توسط PIXON</p>
+      </aside>
+
+      <main class="main">
+        <div class="card">
+          <h1>تنظیم رمز عبور</h1>
+          <p class="sub">این رمز فقط برای ورود شما به‌عنوان مالک پنل است. آن را در جای امن نگه دارید.</p>
+
+          <div class="err" id="err" role="alert"></div>
+
+          <form id="setupForm" autocomplete="on">
+            <label for="setupPass">رمز عبور جدید</label>
+            <input id="setupPass" type="password" autocomplete="new-password" required minlength="6" placeholder="حداقل ۶ کاراکتر" />
+
+            <div class="strength">
+              <div class="strength-bar"><i id="strengthFill"></i></div>
+              <span id="strengthText">قدرت رمز را وارد کنید</span>
+            </div>
+
+            <label for="setupPass2">تکرار رمز عبور</label>
+            <input id="setupPass2" type="password" autocomplete="new-password" required minlength="6" placeholder="تکرار همان رمز" />
+
+            <div class="hints">
+              <div class="hint">حداقل ۶ کاراکتر</div>
+              <div class="hint">ترکیب حروف و عدد پیشنهاد می‌شود</div>
+              <div class="hint">پس از ذخیره مستقیم وارد داشبورد می‌شوید</div>
+            </div>
+
+            <button type="submit" id="setupBtn">ذخیره رمز و ورود به پنل</button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="/static/setup/app.js"></script>
+</body>
+</html>

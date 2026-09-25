@@ -1,0 +1,33 @@
+<section class="page" id="page-telegram">
+  <div class="page-head">
+    <div>
+      <div class="page-title">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.2-1.86 8.77c-.14.62-.5.77-1.01.48l-2.8-2.06-1.35 1.3c-.15.15-.27.27-.55.27l.2-2.84 5.18-4.68c.22-.2-.05-.31-.35-.12l-6.4 4.03-2.76-.86c-.6-.19-.61-.6.12-.89l10.78-4.16c.5-.18.94.12.78.86z"/></svg>
+        <span data-i18n="nav_telegram">پی ایکس بات</span>
+      </div>
+      <div class="page-sub" data-i18n="tg_sub">توکن ربات و آیدی عددی ادمین · فعال‌سازی خودکار و وب‌هوک</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" data-i18n="tg_config">پیکربندی ربات</div>
+    <div class="field"><label data-i18n="tg_token">توکن ربات (BotFather)</label><input id="tgToken" placeholder="123456:ABC-DEF..." autocomplete="off"></div>
+    <div class="field"><label data-i18n="tg_admin">آیدی عددی ادمین</label><input id="tgAdmin" placeholder="123456789" inputmode="numeric"></div>
+    <div class="field" style="display:flex;align-items:center;gap:10px">
+      <label class="switch"><input type="checkbox" id="tgWebhook" checked><span class="slider"></span></label>
+      <span data-i18n="tg_webhook" style="font-size:13px;color:var(--t2)">فعال‌سازی Webhook (پیشنهادی روی Railway)</span>
+    </div>
+    <div id="tgStatus" style="font-size:12px;color:var(--t3);margin:10px 0"></div>
+    <button class="btn btn-p" style="width:100%" onclick="saveTelegram()">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      <span data-i18n="tg_activate">ذخیره و فعال‌سازی ربات</span>
+    </button>
+  </div>
+  <div class="card">
+    <div class="card-title" data-i18n="tg_help">راهنما</div>
+    <ol style="color:var(--t2);font-size:13px;line-height:2;padding-right:18px">
+      <li data-i18n="tg_h1">از @BotFather یک ربات بساز و توکن را کپی کن</li>
+      <li data-i18n="tg_h2">آیدی عددی خودت را از @userinfobot بگیر</li>
+      <li data-i18n="tg_h3">ذخیره کن — وب‌هوک خودکار روی دامنه Railway ست می‌شود</li>
+    </ol>
+  </div>
+</section>

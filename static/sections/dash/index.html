@@ -1,0 +1,27 @@
+<section class="page on" id="page-dash">
+  <div class="page-head">
+    <div>
+      <div class="page-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        <span data-i18n="nav_dash">داشبورد</span>
+      </div>
+      <div class="page-sub" id="lastUpd" data-i18n="loading">در حال بارگـذاری...</div>
+    </div>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-label" data-i18n="m_conns">اتصالات فعـال</div><div class="metric-val" id="mConns">—</div></div>
+    <div class="metric"><div class="metric-label" data-i18n="m_traffic">ترافیک کـل</div><div class="metric-val" id="mTraffic">—</div></div>
+    <div class="metric"><div class="metric-label" data-i18n="m_links">کانفیگ‌هـا</div><div class="metric-val" id="mLinks">—</div></div>
+    <div class="metric"><div class="metric-label" data-i18n="m_uptime">آپتایـم سرور</div><div class="metric-val" id="mUptime" style="font-size:17px">—</div></div>
+  </div>
+  <div class="g2">
+    <div class="card action-card" onclick="goPage('create')">
+      <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg><span data-i18n="quick_create">ساخت کانفیگ</span></div>
+      <p style="color:var(--t2);font-size:12px;line-height:1.6" data-i18n="quick_create_desc">ساخت دستی با محدودیت ترافیک، سرعت، تعداد و انقضا</p>
+    </div>
+    <div class="card action-card purple" onclick="doAutoCreate()">
+      <div class="card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg><span data-i18n="auto_create">ساخت خودکار (پیشنهادی)</span></div>
+      <p style="color:var(--t2);font-size:12px;line-height:1.6" data-i18n="auto_create_desc">ساخت سریع با تنظیمات بهینه · لینک VLESS و ساب</p>
+    </div>
+  </div>
+</section>

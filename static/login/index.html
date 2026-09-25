@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>ورود · PXPanel 14</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/login/style.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <div class="brand">
+        <div class="logo">PX</div>
+        <div>
+          <h1>پی ایکس</h1>
+          <p class="ver">نسخه جدید!</p>
+        </div>
+      </div>
+
+      <div class="err" id="err" role="alert"></div>
+
+      <form id="form" autocomplete="on">
+        <label for="user">نام کاربری</label>
+        <input id="user" name="username" type="text" autocomplete="username" placeholder="owner / admin" />
+
+        <label for="pass">رمز عبور</label>
+        <input id="pass" name="password" type="password" autocomplete="current-password" required placeholder="••••••••" />
+
+        <button type="submit" id="btn">ورود به پنل</button>
+      </form>
+
+      <p class="foot">ساخته شده توسط PIXON</p>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="welcomeModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h2 id="modalTitle">راهنمای انتخاب لوکیشن</h2>
+        <button type="button" class="modal-close" id="modalClose" aria-label="بستن">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="loc-card loc-us">
+          <div class="loc-flag">🇺🇸</div>
+          <div>
+            <h3>آمریکا · هوش مصنوعی</h3>
+            <p>بهترین گزینه برای ChatGPT، Claude، Gemini و سرویس‌های AI. لیتنسی مناسب API و پایداری بالا.</p>
+          </div>
+        </div>
+        <div class="loc-card loc-nl">
+          <div class="loc-flag">🇳🇱</div>
+          <div>
+            <h3>هلند · سرعت</h3>
+            <p>مسیر بهینه برای دانلود، استریم و گیمینگ. پینگ پایین‌تر به اروپا و پهنای باند قوی.</p>
+          </div>
+        </div>
+        <p class="modal-note">پروتکل پیش‌فرض پنل: <b>XHTTP Packet-Up</b> — مخصوص سرعت و پایداری.</p>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn-primary" id="modalOk">متوجه شدم</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/login/app.js"></script>
+</body>
+</html>

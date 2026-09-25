@@ -1,0 +1,4 @@
+/* Section styles inherit from /static/dashboard/style.css */
+/* PXPanel 14 — flat UI, no shadows */
+.page-section { animation: fadeIn .25s ease; }
+/* section: create */

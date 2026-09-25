@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>PX Panel</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet" href="/static/landing/style.css">
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="brand">
+
+<div class="logo">P</div>
+
+<div>
+<div class="brand-name">
+PX Panel
+</div>
+
+<div class="version">
+15.0.0
+</div>
+</div>
+
+</div>
+
+<div class="status">
+● سیستم آنلاین و فعال است
+</div>
+
+<h1>
+برای ورود به پنل
+<br>
+ابتدا وارد شوید
+</h1>
+
+<div class="desc">
+این صفحه، درگاه عمومی PX Panel است.
+برای دسترسی به داشبورد مدیریت از مسیر ورود استفاده کنید.
+</div>
+
+<div class="path">
+/login
+</div>
+
+<div class="actions">
+
+<a
+href="/login"
+class="btn primary"
+>
+ورود به پنل
+</a>
+
+<a
+href="https://t.me/Pixonal"
+target="_blank"
+rel="noopener"
+class="btn secondary"
+>
+پشتیبانی
+</a>
+
+</div>
+
+<div class="footer">
+
+<span>
+PX Panel · 15.0.0
+</span>
+
+<a
+href="https://t.me/Pixonal"
+target="_blank"
+class="support"
+>
+@Pixonal
+</a>
+
+</div>
+
+</div>
+
+<div id="bottomBulkBar" class="bottom-bulk">
+  <div class="bottom-bulk-inner">
+    <span id="bulkCount">0 انتخاب</span>
+    <select id="bulkGroup"></select>
+    <button class="btn btn-sm" onclick="bulkMoveGroup()">انتقال به گروه</button>
+    <button class="btn btn-sm btn-d" onclick="bulkDelete()">حذف انتخاب‌شده</button>
+    <button class="btn btn-sm" onclick="clearSelection()">لغو</button>
+  </div>
+</div>
+
+<script src="/static/landing/app.js"></script>
+</body>
+</html>

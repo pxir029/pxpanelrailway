@@ -1,0 +1,53 @@
+<section class="page" id="page-settings">
+  <div class="page-head"><div><div class="page-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/></svg><span data-i18n="nav_settings">تنظیمات</span></div></div></div>
+  <div class="card">
+    <div class="card-title" data-i18n="theme">تــــم هـا</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn btn-p" onclick="setTheme('dark')" data-i18n="theme_dark">تـم دارک</button>
+      <button class="btn" onclick="setTheme('light')" data-i18n="theme_light">تـم روشـن</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" data-i18n="lang_label">زبـان / Language</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn btn-p" onclick="setLang('fa')">فارسـی</button>
+      <button class="btn" onclick="setLang('en')">English</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title" data-i18n="change_pw">تغییر رمز عبـور</div>
+    <div class="field"><label data-i18n="pw_cur">رمز فعلـی</label><input type="password" id="pwCur"></div>
+    <div class="field"><label data-i18n="pw_new">رمـز جدیـد</label><input type="password" id="pwNew"></div>
+    <div class="field"><label data-i18n="pw_cf">تکـرار رمـز</label><input type="password" id="pwCf"></div>
+    <button class="btn btn-p" onclick="doChangePw()"><span data-i18n="btn_save">ذخیـره</span></button>
+  </div>
+  
+  <div class="card">
+    <div class="card-title">امنیت بیشتـر</div>
+    <p style="font-size:12px;color:var(--t3);line-height:1.8;margin-bottom:12px">پـس از 5 تـلاش ناموفـق، ایپـی به مدت 30 دقیقه مسدود می‌شود.</p>
+    <div id="secStatus" style="font-size:12px;color:var(--t2);margin-bottom:10px">—</div>
+    <button class="btn btn-sm" onclick="loadSecurity()">بروزرسانی وضعیـت</button>
+    <button class="btn btn-sm btn-d" onclick="unlockAllIps()">رفع مسدودی همـه ایپــی هــا</button>
+  </div>
+<div class="card">
+    <div class="card-title">بــک آپ و بازیابــی</div>
+    <p style="font-size:12px;color:var(--t3);line-height:1.8;margin-bottom:14px">در صورت خرابی پنل، بک‌آپ را دانلود کنید و در پنل جدید وارد کنید.</p>
+    <div class="g2" style="margin-bottom:12px">
+      <button class="btn btn-p" style="width:100%" onclick="downloadBackup('users')">دانلود بک‌آپ کاربران</button>
+      <button class="btn btn-p" style="width:100%;background:linear-gradient(135deg,#8b5cf6,#6366f1)" onclick="downloadBackup('bot')">دانلود بک‌آپ ربات</button>
+    </div>
+    <div class="field">
+      <label>وارد کردن بـک‌آپ کاربران</label>
+      <input type="file" id="restoreUsersFile" accept="application/json,.json" style="padding:10px">
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button class="btn btn-sm" onclick="restoreUsers('merge')">ادغام بــــا فعلـی</button>
+        <button class="btn btn-sm btn-d" onclick="restoreUsers('replace')">جایگزینی کامـل</button>
+      </div>
+    </div>
+    <div class="field" style="margin-top:12px">
+      <label>وارد کردن بــک آپ ربـات</label>
+      <input type="file" id="restoreBotFile" accept="application/json,.json" style="padding:10px">
+      <button class="btn btn-sm" style="margin-top:8px" onclick="restoreBot()">بازیابـی ربـات</button>
+    </div>
+  </div>
+</section>

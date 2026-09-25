@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" id="htmlRoot" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>PXPanel 15.0.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/dashboard/style.css">
+</head>
+<body data-theme="dark">
+
+<div class="mob-bar">
+  <div style="font-weight:800;font-size:15px">PXPanel <span style="color:var(--muted);font-weight:600;font-size:12px">v15</span></div>
+  <button class="btn btn-sm" id="mobMenuBtn" type="button" aria-label="menu">☰</button>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <button type="button" class="sb-toggle" id="sbToggle" title="Toggle" style="position:absolute;top:12px;right:8px;z-index:2;background:var(--card2);border:1px solid var(--border);border-radius:8px;color:var(--muted);width:28px;height:28px;cursor:pointer">‹</button>
+  <div class="sb-top">
+    <div class="sb-logo">PX</div>
+    <div class="sb-brand">
+      <div class="sb-name">PXPanel</div>
+      <div class="sb-ver">v15.0.0 · Professional</div>
+    </div>
+  </div>
+  <nav class="nav">
+    <div class="nav-sec" data-i18n="sec_panel">پنل</div>
+    <button class="nav-item on" data-page="dash" data-perm="dash" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      <span class="nav-label" data-i18n="nav_dash">داشبورد</span>
+    </button>
+    <button class="nav-item" data-page="configs" data-perm="configs" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      <span class="nav-label" data-i18n="nav_configs">کانفیگ‌ها</span>
+    </button>
+    <button class="nav-item" data-page="create" data-perm="create" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg>
+      <span class="nav-label" data-i18n="nav_create">ساخت کانفیگ</span>
+    </button>
+    <button class="nav-item" data-page="groups" data-perm="configs" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span class="nav-label" data-i18n="nav_groups">گروه‌ها</span>
+    </button>
+    <button class="nav-item" data-page="stats" data-perm="stats" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+      <span class="nav-label" data-i18n="nav_stats">آمار</span>
+    </button>
+    <div class="nav-sec" data-i18n="sec_sys">سیستم</div>
+    <button class="nav-item" data-page="telegram" data-perm="telegram" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      <span class="nav-label" data-i18n="nav_telegram">ربات تلگرام</span>
+    </button>
+    <button class="nav-item" data-page="logs" data-perm="logs" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+      <span class="nav-label" data-i18n="nav_logs">لاگ</span>
+    </button>
+    <button class="nav-item" data-page="settings" data-perm="settings" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <span class="nav-label" data-i18n="nav_settings">تنظیمات</span>
+    </button>
+    <button class="nav-item" data-page="news" data-perm="news" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/></svg>
+      <span class="nav-label" data-i18n="nav_news">اخبار</span>
+    </button>
+    <button class="nav-item" data-page="admins" data-perm="admins" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span class="nav-label" data-i18n="nav_admins">ادمین‌ها</span>
+    </button>
+    <button class="nav-item" data-page="support" data-perm="support" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+      <span class="nav-label" data-i18n="nav_support">پشتیبانی</span>
+    </button>
+    <button class="nav-item" data-page="donate" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span class="nav-label" data-i18n="nav_donate">حمایت</span>
+    </button>
+  </nav>
+  <div class="sb-foot">
+    <button type="button" id="themeBtn" onclick="toggleTheme()">
+      <span id="themeLabel" data-i18n="theme">تم روشن</span>
+    </button>
+    <button type="button" onclick="refreshAll()" data-i18n="refresh_stats">بروزرسانی آمار</button>
+    <button type="button" onclick="panelUpdate()" style="border-color:rgba(34,197,94,.35);color:var(--green)">بروزرسانی پنل</button>
+    <button type="button" class="danger" id="btnLogout" onclick="doLogout()" data-i18n="logout">خروج</button>
+  </div>
+</aside>
+
+<main class="main" id="main">
+<span id="sActive" style="display:none"></span><span id="panelInfo" style="display:none"></span>
+
+
+<!-- DASH -->
+<section class="page on" id="page-dash">
+  <div class="topbar">
+    <div>
+      <h1 data-i18n="nav_dash">داشبورد</h1>
+      <div class="sub" id="lastUpd" data-i18n="loading">در حال بارگذاری...</div>
+    </div>
+    <div class="top-actions">
+      <button class="btn btn-primary" type="button" onclick="goPage('create')">+ ساخت کانفیگ</button>
+      <button class="btn" type="button" onclick="doAutoCreate()">ساخت خودکار</button>
+    </div>
+  </div>
+  
+  <div class="metrics sys-metrics">
+    <div class="metric accent-blue"><div class="metric-label">CPU</div><div class="metric-val" id="sysCpu">—</div><div class="metric-sub">Processor</div></div>
+    <div class="metric accent-cyan"><div class="metric-label">RAM</div><div class="metric-val" id="sysRam" style="font-size:18px">—</div><div class="metric-sub" id="sysRamPct">—</div></div>
+    <div class="metric accent-green"><div class="metric-label">Network ↑</div><div class="metric-val" id="sysNetUp" style="font-size:16px">—</div><div class="metric-sub">Sent total</div></div>
+    <div class="metric accent-orange"><div class="metric-label">Network ↓</div><div class="metric-val" id="sysNetDown" style="font-size:16px">—</div><div class="metric-sub">Received total</div></div>
+    <div class="metric"><div class="metric-label">DISK</div><div class="metric-val" id="sysDisk" style="font-size:16px">—</div><div class="metric-sub" id="sysDiskPct">—</div></div>
+    <div class="metric"><div class="metric-label">Uptime</div><div class="metric-val" id="mUptime" style="font-size:16px">—</div><div class="metric-sub">Server</div></div>
+    <div class="metric"><div class="metric-label">Configs</div><div class="metric-val" id="mLinks">—</div><div class="metric-sub">Total</div></div>
+    <div class="metric"><div class="metric-label">Connections</div><div class="metric-val" id="mConns">—</div><div class="metric-sub">Active</div></div>
+  </div>
+  <div class="card">
+    <div class="card-head"><div class="card-title">کانفیگ‌های اخیر</div><button class="btn btn-sm" type="button" onclick="goPage('configs')">همه</button></div>
+    <div id="dashConfigs" class="dash-configs"></div>
+  </div>
+
+  <div class="metrics" style="display:none">
+    <div class="metric accent-blue">
+      <div class="metric-label"><span data-i18n="m_conns">اتصالات فعال</span></div>
+      <div class="metric-val" id="mConns">—</div>
+      <div class="metric-sub">Open sockets</div>
+      <div class="metric-spark"></div>
+    </div>
+    <div class="metric accent-cyan">
+      <div class="metric-label"><span data-i18n="m_traffic">ترافیک کل</span></div>
+      <div class="metric-val" id="mTraffic">—</div>
+      <div class="metric-sub">Total traffic</div>
+      <div class="metric-spark"></div>
+    </div>
+    <div class="metric accent-green">
+      <div class="metric-label"><span data-i18n="m_links">کانفیگ‌ها</span></div>
+      <div class="metric-val" id="mLinks">—</div>
+      <div class="metric-sub">Active configs</div>
+      <div class="metric-spark"></div>
+    </div>
+    <div class="metric accent-orange">
+      <div class="metric-label"><span data-i18n="m_uptime">آپتایم</span></div>
+      <div class="metric-val" id="mUptime" style="font-size:20px">—</div>
+      <div class="metric-sub">Server uptime</div>
+      <div class="metric-spark"></div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">ترافیک ۲۴ ساعت (واقعی)</div>
+      </div>
+      <div class="chart-box"><canvas id="chartTraffic" style="width:100%;height:100%;display:block"></canvas></div>
+      <div class="stat-row">
+        <div class="stat-pill"><div class="v" id="mSent">—</div><div class="l">Sent</div></div>
+        <div class="stat-pill"><div class="v" id="mRecv">—</div><div class="l">Received</div></div>
+        <div class="stat-pill"><div class="v" id="mLinks2">—</div><div class="l">Configs</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-title">دسترسی سریع</div></div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button class="btn btn-primary" type="button" onclick="goPage('create')" data-i18n="quick_create">ساخت کانفیگ</button>
+        <button class="btn" type="button" onclick="doAutoCreate()" data-i18n="auto_create">ساخت خودکار</button>
+        <button class="btn" type="button" onclick="goPage('configs')" data-i18n="nav_configs">مدیریت کانفیگ‌ها</button>
+        <button class="btn" type="button" onclick="goPage('telegram')" data-i18n="nav_telegram">ربات تلگرام</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIGS -->
+<section class="page" id="page-configs">
+  <div class="topbar">
+    <div>
+      <h1 data-i18n="nav_configs">کانفیگ‌ها</h1>
+      <div class="sub" data-i18n="configs_sub">مدیریت لینک‌ها</div>
+    </div>
+    <div class="top-actions">
+      <button class="btn btn-primary" type="button" onclick="goPage('create')">+ جدید</button>
+      <button class="btn" type="button" onclick="refreshAll()" data-i18n="refresh">بروزرسانی</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-i18n="th_name">نام</th>
+            <th data-i18n="th_proto">پروتکل</th>
+            <th data-i18n="th_status">وضعیت</th>
+            <th data-i18n="th_usage">مصرف</th>
+            <th data-i18n="th_ops">عملیات</th>
+          </tr>
+        </thead>
+        <tbody id="linksTable" data-also="linksTable"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CREATE -->
+<section class="page" id="page-create">
+  <div class="topbar">
+    <div>
+      <h1 data-i18n="nav_create">ساخت کانفیگ</h1>
+      <div class="sub" data-i18n="quick_create_desc">ساخت با محدودیت ترافیک، سرعت و انقضا</div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head"><div class="card-title" data-i18n="manual_create">ساخت دستی</div></div>
+      <div class="form-grid">
+        <div class="full"><label data-i18n="label_name">نام</label><div style="display:flex;gap:8px"><input id="cName" placeholder="my-config" style="flex:1;margin-bottom:0"><button class="btn" type="button" onclick="randomName()" style="margin-bottom:12px;white-space:nowrap">🎲 رندوم</button></div></div>
+        <div><label data-i18n="label_proto">پروتکل</label><select id="cProto"></select></div>
+        <div><label data-i18n="label_count">تعداد در ساب</label><input id="cCount" type="number" min="1" max="40" value="1"></div>
+        <div><label data-i18n="label_limit">محدودیت حجم</label><input id="cLimit" type="number" min="0" value="0"></div>
+        <div><label data-i18n="label_unit">واحد</label><select id="cUnit"><option value="GB">GB</option><option value="MB">MB</option><option value="0">نامحدود</option></select></div>
+        <div><label data-i18n="label_days">انقضا (روز)</label><input id="cDays" type="number" min="0" value="0"></div>
+        <div><label data-i18n="label_ip">محدودیت IP</label><input id="cIp" type="number" min="0" value="0"></div>
+        <div><label data-i18n="label_speed">سرعت (Mbps)</label><input id="cSpeed" type="number" min="0" value="0"></div>
+      </div>
+      <button class="btn btn-primary" type="button" onclick="doCreate()" data-i18n="btn_create">ساخت</button>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-title" data-i18n="auto_create">ساخت خودکار</div></div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px" data-i18n="auto_desc">با یک کلیک کانفیگ بهینه ساخته می‌شود.</p>
+      <button class="btn btn-success" type="button" onclick="doAutoCreate()" data-i18n="btn_auto" style="width:100%">ساخت خودکار</button>
+    </div>
+  </div>
+</section>
+
+<!-- GROUPS -->
+<section class="page" id="page-groups">
+  <div class="topbar"><div><h1 data-i18n="nav_groups">گروه‌ها</h1></div></div>
+  <div class="card"><div id="groupsBox">—</div></div>
+</section>
+
+<!-- STATS -->
+<section class="page" id="page-stats">
+  <div class="topbar">
+    <div>
+      <h1 data-i18n="nav_stats">آمار</h1>
+      <div class="sub" data-i18n="stats_sub">ترافیک و اتصالات</div>
+    </div>
+    <div class="top-actions">
+      <button class="btn btn-sm" type="button" onclick="statRange='day';refreshAll()">روز</button>
+      <button class="btn btn-sm" type="button" onclick="statRange='week';refreshAll()">هفته</button>
+      <button class="btn btn-sm" type="button" onclick="statRange='month';refreshAll()">ماه</button>
+      <button class="btn btn-sm" type="button" onclick="statRange='all';refreshAll()">کل</button>
+    </div>
+  </div>
+  <div class="metrics">
+    <div class="metric"><div class="metric-label">اتصالات</div><div class="metric-val" id="sConns">—</div></div>
+    <div class="metric"><div class="metric-label">ترافیک</div><div class="metric-val" id="sTraffic">—</div></div>
+    <div class="metric"><div class="metric-label">کانفیگ</div><div class="metric-val" id="sLinks">—</div></div>
+    <div class="metric"><div class="metric-label">آپتایم</div><div class="metric-val" id="sUptime" style="font-size:18px">—</div></div>
+  </div>
+  <div class="card"><div class="chart-box" style="height:240px"><canvas id="chartTrafficStats" style="width:100%;height:100%;display:block"></canvas></div>
+    <div class="stat-row" style="margin-top:14px">
+      <div class="stat-pill"><div class="v" id="statReq">—</div><div class="l">Requests</div></div>
+      <div class="stat-pill"><div class="v" id="statErr">—</div><div class="l">Errors</div></div>
+      <div class="stat-pill"><div class="v" id="statActiveLinks">—</div><div class="l">Active links</div></div>
+      <div class="stat-pill"><div class="v" id="statExpired">—</div><div class="l">Expired</div></div>
+      <div class="stat-pill"><div class="v" id="statSubs">—</div><div class="l">Subs</div></div>
+    </div></div>
+</section>
+
+<!-- LOGS -->
+<section class="page" id="page-logs">
+  <div class="topbar"><div><h1 data-i18n="nav_logs">لاگ فعالیت</h1></div><button class="btn" type="button" onclick="loadLogs()">بروزرسانی</button></div>
+  <div class="card"><div id="logsBox" class="mono" style="max-height:480px">—</div></div>
+</section>
+
+<!-- SETTINGS -->
+<section class="page" id="page-settings">
+  <div class="topbar"><div><h1 data-i18n="nav_settings">تنظیمات</h1></div></div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head"><div class="card-title" data-i18n="change_pw">تغییر رمز</div></div>
+      <label data-i18n="pw_cur">رمز فعلی</label><input id="pwCur" type="password">
+      <label data-i18n="pw_new">رمز جدید</label><input id="pwNew" type="password">
+      <label data-i18n="pw_cf">تکرار</label><input id="pwCf" type="password">
+      <button class="btn btn-primary" type="button" onclick="changePassword()" data-i18n="btn_save">ذخیره</button>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-title">پشتیبان‌گیری</div></div>
+      <button class="btn" type="button" onclick="downloadBackup('users')" style="width:100%;margin-bottom:8px">دانلود کاربران</button>
+      <button class="btn" type="button" onclick="downloadBackup('bot')" style="width:100%;margin-bottom:8px">دانلود ربات</button>
+      <label>بازیابی کاربران</label><input type="file" id="restoreUsersFile" accept="application/json">
+      <button class="btn" type="button" onclick="restoreUsers('merge')">ادغام</button>
+      <button class="btn btn-danger" type="button" onclick="restoreUsers('replace')">جایگزینی کامل</button>
+      <label style="margin-top:12px">بازیابی ربات</label><input type="file" id="restoreBotFile" accept="application/json">
+      <button class="btn" type="button" onclick="restoreBot()">بازیابی ربات</button>
+    </div>
+  </div>
+</section>
+
+<!-- TELEGRAM — main bot + user bots -->
+<section class="page" id="page-telegram">
+  <div class="topbar">
+    <div>
+      <h1 data-i18n="nav_telegram">ربات تلگرام</h1>
+      <div class="sub">ربات اصلی پنل + اتصال ربات کاربران</div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head"><div class="card-title">ربات اصلی پنل</div></div>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:12px" data-i18n="tg_sub">توکن BotFather و آیدی عددی ادمین</p>
+      <label data-i18n="tg_token">توکن ربات</label>
+      <input id="tgToken" placeholder="123456:ABC...">
+      <label data-i18n="tg_admin">آیدی عددی ادمین</label>
+      <input id="tgAdmin" placeholder="123456789">
+      <label style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+        <input type="checkbox" id="tgWebhook" checked style="width:auto;margin:0">
+        <span data-i18n="tg_webhook">Webhook (Railway)</span>
+      </label>
+      <button class="btn btn-primary" type="button" onclick="saveTelegram()" data-i18n="tg_activate">ذخیره و فعال‌سازی</button>
+      <div id="tgStatus" style="margin-top:10px;font-size:12px;color:var(--muted)"></div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border)">
+        <div style="font-size:12px;font-weight:700;margin-bottom:8px" data-i18n="tg_help">راهنما</div>
+        <ol style="font-size:12px;color:var(--muted);line-height:1.8;padding-right:18px">
+          <li data-i18n="tg_h1">از @BotFather ربات بساز</li>
+          <li data-i18n="tg_h2">آیدی را از @userinfobot بگیر</li>
+          <li data-i18n="tg_h3">ذخیره کن — وب‌هوک ست می‌شود</li>
+        </ol>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-title">اتصال ربات کاربران</div></div>
+      <p style="font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:14px">
+        هر کاربر می‌تواند ربات تلگرام خودش را وصل کند تا به‌صورت خودکار برایش کانفیگ ساخته شود و لینک را در همان ربات دریافت کند.
+      </p>
+      <div class="setup-steps" style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">
+        <div class="hint" style="padding:10px;border:1px solid var(--border);border-radius:10px;font-size:12px;background:var(--card2)"><b>۱.</b> ساخت ربات در @BotFather</div>
+        <div class="hint" style="padding:10px;border:1px solid var(--border);border-radius:10px;font-size:12px;background:var(--card2)"><b>۲.</b> ثبت توکن در فرم زیر</div>
+        <div class="hint" style="padding:10px;border:1px solid var(--border);border-radius:10px;font-size:12px;background:var(--card2)"><b>۳.</b> فعال‌سازی — ربات کانفیگ می‌سازد</div>
+      </div>
+      <label>برچسب / نام کاربر</label>
+      <input id="ubLabel" placeholder="مثلاً فروشنده ۱">
+      <label>توکن ربات کاربر</label>
+      <input id="ubToken" placeholder="123456:AA...">
+      <label>آیدی عددی ادمین این ربات</label>
+      <input id="ubAdmin" placeholder="123456789">
+      <label>پروتکل پیش‌فرض ساخت خودکار</label>
+      <select id="ubProto"><option value="vless-ws">VLESS WS</option><option value="xhttp-packet-up">XHTTP Packet-Up</option></select>
+      <button class="btn btn-primary" type="button" onclick="addUserBot()" style="width:100%;margin-top:4px">ثبت و اتصال ربات کاربر</button>
+      <div id="ubStatus" style="margin-top:10px;font-size:12px;color:var(--muted)"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">ربات‌های متصل کاربران</div>
+      <button class="btn btn-sm" type="button" onclick="loadUserBots()">بروزرسانی</button>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>برچسب</th><th>توکن</th><th>ادمین</th><th>وضعیت</th><th>عملیات</th></tr></thead>
+        <tbody id="userBotsBody"><tr><td colspan="5" style="text-align:center;color:var(--muted)">هنوز رباتی ثبت نشده</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="page" id="page-news">
+  <div class="topbar"><div><h1 data-i18n="nav_news">اخبار</h1></div><button class="btn" type="button" onclick="loadNews()" data-i18n="refresh_news">بروزرسانی</button></div>
+  <div class="card" id="newsBox">—</div>
+</section>
+
+<!-- ADMINS -->
+<section class="page" id="page-admins">
+  <div class="topbar"><div><h1 data-i18n="nav_admins">ادمین‌ها</h1><div class="sub" data-i18n="admins_sub">دسترسی سفارشی</div></div></div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-head"><div class="card-title" data-i18n="admin_create">ساخت اکانت</div></div>
+      <label data-i18n="admin_user">نام کاربری</label><input id="adUser">
+      <label data-i18n="admin_pw">رمز</label><input id="adPw" type="password">
+      <label data-i18n="admin_pw2">تکرار</label><input id="adPw2" type="password">
+      <div id="adPerms"></div>
+      <button class="btn btn-primary" type="button" onclick="createAdmin()" data-i18n="admin_btn">ساخت</button>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-title" data-i18n="admin_list">لیست</div><button class="btn btn-sm" type="button" onclick="loadAdmins()">بروزرسانی</button></div>
+      <div id="adminsBox">—</div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT / DONATE -->
+<section class="page" id="page-support">
+  <div class="topbar"><div><h1 data-i18n="nav_support">پشتیبانی</h1></div></div>
+  <div class="card">
+    <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px">پشتیبانی تلگرام و کانال</p>
+    <a class="btn" href="https://t.me/logic_sec" target="_blank" rel="noopener">کانال پشتیبانی</a>
+    <a class="btn" href="https://github.com/iran-px-panel/pxpanel" target="_blank" rel="noopener" style="margin-right:8px">GitHub</a>
+  </div>
+</section>
+<section class="page" id="page-donate">
+  <div class="topbar"><div><h1 data-i18n="nav_donate">حمایت مالی</h1></div></div>
+  <div class="card"><p style="font-size:13px;color:var(--muted)">از توسعه پنل حمایت کنید.</p></div>
+</section>
+
+</main>
+
+<!-- Result modal -->
+<div class="modal-backdrop" id="resultModal">
+  <div class="modal">
+    <div class="modal-head"><h3 data-i18n="created_title">کانفیگ ساخته شد</h3><button class="btn btn-sm" type="button" onclick="closeResult()">×</button></div>
+    <div class="modal-body">
+      <label data-i18n="copy_vless">VLESS</label>
+      <div class="mono" id="resVless"></div>
+      <label style="margin-top:10px" data-i18n="sub_label">ساب</label>
+      <div class="mono" id="resSub"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" type="button" onclick="copyText(document.getElementById('resVless').textContent)" data-i18n="copy_vless">کپی VLESS</button>
+      <button class="btn btn-primary" type="button" onclick="copyText(document.getElementById('resSub').textContent)" data-i18n="copy_sub">کپی ساب</button>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop" id="panelModal">
+  <div class="modal">
+    <div class="modal-head"><h3 id="panelModalTitle">آپدیت</h3><button class="btn btn-sm" type="button" onclick="document.getElementById('panelModal').classList.remove('open')">×</button></div>
+    <div class="modal-body" id="panelModalBody"></div>
+  </div>
+</div>
+<div class="toast-wrap" id="toastWrap"><div class="toast" id="toast"></div></div>
+
+<script src="/static/dashboard/app.js"></script>
+<script>
+/* Mobile menu + user bots helpers */
+(function(){
+  const sb=document.getElementById('sidebar');
+  const ov=document.getElementById('overlay');
+  document.getElementById('mobMenuBtn')?.addEventListener('click',()=>{sb?.classList.add('open');ov?.classList.add('on');});
+  ov?.addEventListener('click',()=>{sb?.classList.remove('open');ov?.classList.remove('on');});
+})();
+
+async function addUserBot(){
+  const label=(document.getElementById('ubLabel')?.value||'').trim();
+  const token=(document.getElementById('ubToken')?.value||'').trim();
+  const admin=(document.getElementById('ubAdmin')?.value||'').trim();
+  const protocol=document.getElementById('ubProto')?.value||'vless-ws';
+  const st=document.getElementById('ubStatus');
+  if(!token||!admin){ if(st) st.textContent='توکن و آیدی ادمین لازم است'; return; }
+  try{
+    const r=await api('/api/telegram/user-bots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({label,token,admin_ids:admin,protocol})});
+    if(r){ if(st) st.textContent=r.message||'ثبت شد'; loadUserBots(); document.getElementById('ubToken').value=''; }
+  }catch(e){ if(st) st.textContent=String(e.message||e); }
+}
+async function loadUserBots(){
+  const tb=document.getElementById('userBotsBody');
+  if(!tb) return;
+  try{
+    const r=await api('/api/telegram/user-bots');
+    const list=(r&&r.bots)||[];
+    if(!list.length){ tb.innerHTML='<tr><td colspan="5" style="text-align:center;color:var(--muted)">هنوز رباتی ثبت نشده</td></tr>'; return; }
+    tb.innerHTML=list.map(b=>`<tr>
+      <td>${esc(b.label||'—')}</td>
+      <td class="mono" style="max-width:140px;overflow:hidden;text-overflow:ellipsis">${esc(b.token_masked||'***')}</td>
+      <td>${esc(b.admin_ids||'')}</td>
+      <td><span class="badge ${b.active?'on':'off'}">${b.active?'فعال':'خاموش'}</span></td>
+      <td><button class="btn btn-sm btn-danger" type="button" onclick="deleteUserBot('${esc(b.id)}')">حذف</button></td>
+    </tr>`).join('');
+  }catch(e){ tb.innerHTML='<tr><td colspan="5">خطا در بارگذاری</td></tr>'; }
+}
+async function deleteUserBot(id){
+  if(!confirm('حذف این ربات؟')) return;
+  await api('/api/telegram/user-bots/'+id,{method:'DELETE'});
+  loadUserBots();
+}
+const _go=typeof goPage==='function'?goPage:null;
+if(_go){
+  window.goPage=function(name){ _go(name); if(name==='telegram'){ loadTelegram&&loadTelegram(); loadUserBots(); } };
+}
+</script>
+</body>
+</html>
